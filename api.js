@@ -4,7 +4,7 @@ const port = 3000;
 
 // Middleware pour parser le JSON
 app.use(express.json());
-const t = 'err'
+
 
 // Endpoint pour la somme de deux entiers
 app.post('/add', (req, res) => {
