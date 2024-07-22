@@ -1,10 +1,9 @@
-name: LINTER AND TEST
+name: PREPROD DEPLOYMENT
 
 on:
   push:
     branches:
-      - new-feature-division
-      - main
+      - preprod
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -30,5 +29,8 @@ jobs:
 
       - name: Run tests
         run: npm run test
+
+      - name: Deploy to preprod
+        run: echo "Deploying to preprod"
 
 
