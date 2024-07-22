@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - new-feature-division
-
+      - main
 jobs:
   build:
     runs-on: ubuntu-latest
