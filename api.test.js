@@ -19,6 +19,28 @@ describe('POST /add', () => {
     });
 });
 
+
+
+
+describe('POST /division', () => {
+    it('should return the division of two integers', async () => {
+        const response = await request(app)
+            .post('/division')
+            .send({ a: 6, b: 3 });
+        expect(response.statusCode).toBe(200);
+        expect(response.body).toEqual({ result: 2 });
+    });
+
+    it('should return a 400 error for invalid input', async () => {
+        const response = await request(app)
+            .post('/division')
+            .send({ a: 'six', b: 3 });
+        expect(response.statusCode).toBe(400);
+        expect(response.body).toEqual({ error: 'Invalid input' });
+    });
+});
+
+
 describe('POST /multiply', () => {
     it('should return the product of two integers', async () => {
         const response = await request(app)

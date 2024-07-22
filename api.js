@@ -38,6 +38,16 @@ app.post('/substract', (req, res) => {
     }
 });
 
+app.post('/division', (req, res) => {
+    const { a, b } = req.body;
+    if (typeof a === 'number' && typeof b === 'number') {
+        const div = a / b;
+        res.json({ result: div });
+    } else {
+        res.status(400).json({ error: 'Invalid input' });
+    }
+});
+
 if (require.main === module) {
     app.listen(port, () => {
         console.log(`Server is running on http://localhost:${port}`);

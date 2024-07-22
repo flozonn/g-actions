@@ -1,6 +1,9 @@
 name: Node.js CI
 
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - new-feauture-division
 
 jobs:
   build:
