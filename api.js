@@ -3,7 +3,7 @@ const app = express();
 const port = 3000;
 
 // Middleware pour parser le JSON
-app.use(express.json());
+app.use(express.json())
 
 
 // Endpoint pour la somme de deux entiers
