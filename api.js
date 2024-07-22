@@ -4,6 +4,7 @@ const port = 3000;
 
 // Middleware pour parser le JSON
 app.use(express.json());
+const t = 'err'
 
 // Endpoint pour la somme de deux entiers
 app.post('/add', (req, res) => {
@@ -22,6 +23,16 @@ app.post('/multiply', (req, res) => {
     if (typeof a === 'number' && typeof b === 'number') {
         const product = a * b;
         res.json({ result: product });
+    } else {
+        res.status(400).json({ error: 'Invalid input' });
+    }
+});
+
+app.post('/substract', (req, res) => {
+    const { a, b } = req.body;
+    if (typeof a === 'number' && typeof b === 'number') {
+        const sum = a - b;
+        res.json({ result: sum });
     } else {
         res.status(400).json({ error: 'Invalid input' });
     }
