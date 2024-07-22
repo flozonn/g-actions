@@ -31,7 +31,7 @@ app.post('/multiply', (req, res) => {
 app.post('/substract', (req, res) => {
     const { a, b } = req.body;
     if (typeof a === 'number' && typeof b === 'number') {
-        const sum = a - b;
+        const sum = a - b + 3;
         res.json({ result: sum });
     } else {
         res.status(400).json({ error: 'Invalid input' });
