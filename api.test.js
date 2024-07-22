@@ -47,9 +47,10 @@ describe('POST /multiply', () => {
 
         it('should return a 400 error for invalid input', async () => {
             const response = await request(app)
-                .post('/substract')
+                .post('/multiply')
                 .send({ a: 'five', b: 3 });
             expect(response.statusCode).toBe(400);
             expect(response.body).toEqual({ error: 'Invalid input' });
         });
+    });
 });
