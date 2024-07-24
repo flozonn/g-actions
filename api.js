@@ -1,6 +1,5 @@
 const express = require('express');
 const fs = require('fs');
-const path = require('path');
 const app = express();
 const port = 3000;
 
@@ -14,7 +13,6 @@ app.use((req, res, next) => {
         const duration = Date.now() - start;
         const log = {
             method: req.method,
-            nimportequoi: "nimportequoi",
             url: req.url,
             status: res.statusCode,
             duration: duration,
