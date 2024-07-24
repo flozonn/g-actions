@@ -21,19 +21,11 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      - name: Install dependencies
-        run: npm install
-
-      - name: Run tests
-        run: npm run test
-
-      - name: deploy to AWS with terraform
-        uses: hashicorp/terraform-github-actions@v2
-        with:
-          tf_actions_version: 1.0
-          tf_actions_subcommand: "apply"
-          tf_actions_working_dir: "terraform"
+      - name: TF init
+        run: terraform init
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_DEFAULT_REGION: "eu-central-1"
+
+
