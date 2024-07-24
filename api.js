@@ -1,10 +1,29 @@
 const express = require('express');
+const fs = require('fs');
+const path = require('path');
 const app = express();
 const port = 3000;
 
 // Middleware pour parser le JSON
-app.use(express.json())
+app.use(express.json());
 
+// Middleware de journalisation
+app.use((req, res, next) => {
+    const start = Date.now();
+    res.on('finish', () => {
+        const duration = Date.now() - start;
+        const log = {
+            method: req.method,
+            nimportequoi: "nimportequoi",
+            url: req.url,
+            status: res.statusCode,
+            duration: duration,
+            timestamp: new Date().toISOString(),
+        };
+        fs.appendFileSync('app.log', JSON.stringify(log) + '\n');
+    });
+    next();
+});
 
 // Endpoint pour la somme de deux entiers
 app.post('/add', (req, res) => {

@@ -1,3 +1,9 @@
+/elasticsearch-8.14.3
+/kibana-8.14.3
+/logstash-8.14.3
+*.tar.gz
+*.tfstate
+*.terraform/
 # Logs
 logs
 *.log
