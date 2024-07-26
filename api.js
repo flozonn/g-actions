@@ -61,7 +61,7 @@ app.post('/division', (req, res) => {
         const div = a / b * 1 ;
         res.json({ result: div });
     } else {
-        res.status(400).json({ error: 'Invalid input' });
+        res.status(400).json({ error: 'Invalid input !!!' });
     }
 });
 
